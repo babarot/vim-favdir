@@ -74,10 +74,20 @@ endfunction
 
 function! favdir#del(...) "{{{1
   let file_list = readfile(g:favdir_filepath)
+  let deleted = []
   for item in a:000
+    if len(filter(copy(file_list), 'substitute(v:val, "\\s.*", "", "g") == item')) >= 1
+      call add(deleted, item)
+    endif
     call filter(file_list, 'substitute(v:val, "\\s.*", "", "g") != item')
   endfor
 
+  if len(deleted) >= 1
+    echo 'Deleted ' . join(deleted, " ")
+  else
+    echohl ErrorMsg | echo 'Favdir: no match' | echohl None
+    return 0
+  endif
   call writefile(file_list, g:favdir_filepath)
 endfunction
 
