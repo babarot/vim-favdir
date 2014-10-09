@@ -1,0 +1,103 @@
+*favdir.txt*  Save favorite directories and jump to it
+
+Version: 0.1
+Author: b4b4r07 (https://github.com/b4b4r07)
+License: MIT License
+Repository: https://github.com/b4b4r07/vim-favdir
+Last Change: 2014/10/08
+
+*CONTENTS*
+                                                             *favdir-contents*
+
+Introduction                |favdir-introduction|
+Interface                   |favdir-interface|
+  Commands                  |favdir-commands|
+  Keymappings               |favdir-keymappings|
+Variables                   |favdir-variables|
+License                     |favdir-license|
+Changelog                   |favdir-changelog|
+
+==============================================================================
+*INTRODUCTION*
+                                                         *favdir-introduction*
+
+The |favdir.vim| is a plugin that save your favorite directorie and jump to
+it. If you have deep directory structure having a directory in a lower-level
+layer of a directory, this plugin exerts great power. Saving preliminarily,
+easily refer to that directory. First of all, try to experience.
+
+==============================================================================
+*INTERFACE*
+                                                            *favdir-interface*
+------------------------------------------------------------------------------
+*COMMANDS*
+                                                             *favdir-commands*
+
+                                                                        *:Reg*
+:Reg [{name}]
+        Register current directory path as {name} to |g:favdir_filepath|.
+        If {name} is omitted, {name} is set current directory name.
+
+                                                                       *:Show*
+:Show [{name}]
+        Output |g:favdir_filepath|. If {name} is not omitted, show filepath
+        of {name}.
+
+                                                                         *:Gg*
+:Gg {name}
+        Jump to {name} if {name}'s path is available.
+
+                                                                        *:Del*
+:Del {name}...
+        Delete the {name}s from |g:favdir_filepath|.
+
+------------------------------------------------------------------------------
+*KEYMAPPING*
+                                                          *favdir-keymappings*
+
+The keymappings is not supported.
+
+==============================================================================
+*VARIABLES*
+                                                            *favdir-variables*
+
+                                                           *g:favdir_filepath*
+g:favdir_filepath
+                                                                          ()
+        Saving file. Default is ~/.favdir/favdirlist
+
+==============================================================================
+*LICENSE*
+                                                              *favdir-license*
+
+The MIT License (MIT)
+
+Copyright (c) 2014 b4b4r07
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+==============================================================================
+*CHANGELOG*
+                                                            *favdir-changelog*
+
+0.1         2014-10-08
+            - Initial version.
+
+==============================================================================
+ vim:tw=78:et:ft=help:norl:
