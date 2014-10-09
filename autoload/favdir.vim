@@ -23,7 +23,7 @@ function! favdir#show(name) "{{{1
     let name = substitute(line, '\s.*', '', '')
     let path = substitute(line, '.*\s', '', '')
 
-    if len(filter(readfile(s:favdir_logfilepath), 'substitute(v:val, ".\\+\\t\\(.\\+\\)\\t.\\+", "\\1", "g") ==name')) >= 1
+    if len(filter(readfile(s:favdir_logfilepath), 'substitute(v:val, ".\\+\\t\\(.\\+\\)\\t.\\+", "\\1", "g") == name')) >= 1
       echohl WarningMsg | echo printf("%-15s", name) | echohl NONE
     else
       echohl Directory | echo printf("%-15s", name) | echohl NONE
@@ -34,13 +34,13 @@ endfunction
 
 function! favdir#reg(name) "{{{1
   let name = empty(a:name) ? fnamemodify(getcwd(), ":t") : a:name
-  let file_list = readfile(g:favdir_filepath)
+  silent! let file_list = readfile(g:favdir_filepath)
 
   if empty(filter(file_list, 'substitute(v:val, "\\s.*", "", "g") == a:name'))
     execute ":redir! >>" . g:favdir_filepath
-    silent echo printf("%-15s%s", name, getcwd())
+    silent echon printf("%-15s%s\n", name, getcwd())
     redir END
-    echo 'Favdir: ' . name ' added'
+    echo 'Favdir: ' . name . ' added'
   else
     redraw
     echohl ErrorMsg | echo 'Favdir: ' . a:name . ': already exists' | echohl NONE
@@ -55,14 +55,14 @@ function! favdir#go(word) "{{{1
   let path = substitute(join(file_list, "\n"), '.*\s', '', 'g')
   if empty(name)
     redraw
-    echohl ErrorMsg | echo 'no match' | echohl NONE
-    return
+    echohl ErrorMsg | echo 'Favdir: no match' | echohl NONE
+    return 0
   endif
 
   if empty(path) || !isdirectory(path)
     redraw
     echohl ErrorMsg | echo path . ': No such directory' | echohl NONE
-    return
+    return 0
   endif
 
   execute 'cd' path
