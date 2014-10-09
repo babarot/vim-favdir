@@ -9,7 +9,7 @@ Save favorite directories and jump to it
 
 The `favdir.vim` is a plugin that save your favorite directorie and jump to it. If you have deep directory structure having a directory in a lower-level layer of a directory, this plugin exerts great power. Saving preliminarily, easily refer to that directory. First of all, try to experience.
 
-![](http://cl.ly/image/391D0P3Q0t2x/vim-favdir.gif)
+![](http://cl.ly/image/1v2H1A2o133H/vim-favdir.gif)
 
 ## Requirement
 
@@ -96,3 +96,4 @@ Install with `:NeoBundleInstall`.
 ## See also
 
 - [Help file](./doc/vim-favdir.txt)
+- [favdir.sh](https://github.com/b4b4r07/favdir)
