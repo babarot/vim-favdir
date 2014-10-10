@@ -69,7 +69,7 @@ function! favdir#go(word) "{{{1
   execute 'cd' path
   echo 'Favdir: cd ' . substitute(path, $HOME, '~', 'g') . ' successfully'
   execute ":redir! >>" . s:favdir_logfilepath
-  silent echo printf("%s\t%s\t%s", strftime("%Y/%m/%d %H:%M:%S"), name, path)
+  silent echon printf("%s\t%s\t%s\n", strftime("%Y/%m/%d %H:%M:%S"), name, path)
   redir END
 endfunction
 
