@@ -23,7 +23,8 @@ function! favdir#show(name) "{{{1
     let name = substitute(line, '\s.*', '', '')
     let path = substitute(line, '.*\s', '', '')
 
-    if len(filter(readfile(s:favdir_logfilepath), 'substitute(v:val, ".\\+\\t\\(.\\+\\)\\t.\\+", "\\1", "g") == name')) >= 1
+    if filereadable(s:favdir_logfilepath) &&
+          \ len(filter(readfile(s:favdir_logfilepath), 'substitute(v:val, ".\\+\\t\\(.\\+\\)\\t.\\+", "\\1", "g") == name')) >= 1
       echohl WarningMsg | echo printf("%-15s", name) | echohl NONE
     else
       echohl Directory | echo printf("%-15s", name) | echohl NONE
