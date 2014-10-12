@@ -54,7 +54,7 @@ Put all files under `$VIM`.
 
 Install with the following command.
 
-	git clone https://github.com/b4b4r07/vim-favdir ~/.vim/bundle/lightline.vim
+	git clone https://github.com/b4b4r07/vim-favdir ~/.vim/bundle/vim-favdir
 
 ### Vundle (<https://github.com/gmarik/Vundle.vim>)
 
